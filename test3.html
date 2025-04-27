@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест 3: География Казахстана</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Тест: География Казахстана</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Какая самая большая река в Казахстане?</p>
+        <label><input type="radio" name="q1" value="correct"> Иртыш</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Урал</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Сырдарья</label>
+      </div>
+
+      <div class="question">
+        <p>2. Какой город является столицей Казахстана?</p>
+        <label><input type="radio" name="q2" value="correct"> Астана</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Алматы</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Шымкент</label>
+      </div>
+
+      <div class="question">
+        <p>3. Сколько областей в Казахстане?</p>
+        <label><input type="radio" name="q3" value="wrong"> 14</label><br>
+        <label><input type="radio" name="q3" value="correct"> 17</label><br>
+        <label><input type="radio" name="q3" value="wrong"> 19</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Завершить тест</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+<script>
+  function submitQuiz() {
+    let correct = 0;
+    const form = document.forms["quizForm"];
+    if (form.q1.value == "correct") { correct++; }
+    if (form.q2.value == "correct") { correct++; }
+    if (form.q3.value == "correct") { correct++; }
+    document.getElementById("result").innerHTML = `Ваш результат: ${correct} из 3`;
+  }
+</script>
+</body>
+</html>
 
