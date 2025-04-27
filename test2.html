@@ -1,49 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тест: Законы</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f2f5; }
-    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h1 { text-align: center; }
-    .question { margin-bottom: 20px; }
-    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; cursor: pointer; }
-    .result { font-size: 20px; text-align: center; margin-top: 20px; }
-    .back-btn { display: block; margin: 30px auto 0; text-align: center; text-decoration: none; background-color: #0066cc; color: white; padding: 10px 20px; border-radius: 8px; font-size: 16px; width: fit-content; }
-    .back-btn:hover { background-color: #0055aa; }
-  </style>
+  <title>Тақырып 2 - Экономика</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Тест: Законы</h1>
-    <form id="quizForm">
-      <div class="question">
-        <p>1. Кто подписывает законы в Казахстане?</p>
-        <label><input type="radio" name="q1" value="correct"> Президент</label><br>
-        <label><input type="radio" name="q1" value="wrong"> Парламент</label><br>
-        <label><input type="radio" name="q1" value="wrong"> Суд</label>
-      </div>
-      <div class="question">
-        <p>2. Основной закон страны это?</p>
-        <label><input type="radio" name="q2" value="correct"> Конституция</label><br>
-        <label><input type="radio" name="q2" value="wrong"> Уголовный кодекс</label><br>
-        <label><input type="radio" name="q2" value="wrong"> Бюджет</label>
-      </div>
-      <button type="button" onclick="submitQuiz()">Завершить тест</button>
-    </form>
-    <div id="result" class="result"></div>
-    <a href="index.html" class="back-btn">← На главную</a>
+  <header>
+    <h1>Тақырып 2: Экономика</h1>
+  </header>
+
+  <div class="content">
+    <h2>Сұрақ 1</h2>
+    <p>Экономика саласындағы негізгі ұғым қандай?</p>
+    <ul>
+      <li><input type="radio" name="q1" value="option1"> А. Өндіріс</li>
+      <li><input type="radio" name="q1" value="option2"> Б. Сауда</li>
+      <li><input type="radio" name="q1" value="option3"> В. Қаржы</li>
+      <li><input type="radio" name="q1" value="option4"> Г. Құқық</li>
+    </ul>
+
+    <h2>Сұрақ 2</h2>
+    <p>Инфляция деген не?</p>
+    <ul>
+      <li><input type="radio" name="q2" value="option1"> А. Ақша құнсыздануы</li>
+      <li><input type="radio" name="q2" value="option2"> Б. Әлеуметтік тұрақсыздық</li>
+      <li><input type="radio" name="q2" value="option3"> В. Бюджет тапшылығы</li>
+      <li><input type="radio" name="q2" value="option4"> Г. Экономикалық өсім</li>
+    </ul>
   </div>
-<script>
-  function submitQuiz() {
-    let correct = 0;
-    const form = document.forms["quizForm"];
-    if (form.q1.value == "correct") { correct++; }
-    if (form.q2.value == "correct") { correct++; }
-    document.getElementById("result").innerHTML = `Ваш результат: ${correct} из 2`;
-  }
-</script>
 </body>
 </html>
