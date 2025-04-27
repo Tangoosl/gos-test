@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест для госслужбы</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f2f5; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; cursor: pointer; }
+    .result { font-size: 20px; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Тест для госслужбы</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Что такое Конституция?</p>
+        <label><input type="radio" name="q1" value="correct"> Основной закон государства</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Сборник сказок</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Бюджет страны</label>
+      </div>
+
+      <div class="question">
+        <p>2. Кто принимает законы?</p>
+        <label><input type="radio" name="q2" value="correct"> Парламент</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Президент</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Суд</label>
+      </div>
+
+      <div class="question">
+        <p>3. Сколько областей в Казахстане?</p>
+        <label><input type="radio" name="q3" value="wrong"> 12</label><br>
+        <label><input type="radio" name="q3" value="correct"> 17</label><br>
+        <label><input type="radio" name="q3" value="wrong"> 20</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Завершить тест</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      let correct = 0;
+      const total = 3;
+      const form = document.forms["quizForm"];
+
+      if (form.q1.value == "correct") { correct++; }
+      if (form.q2.value == "correct") { correct++; }
+      if (form.q3.value == "correct") { correct++; }
+
+      document.getElementById("result").innerHTML = `Ваш результат: ${correct} из ${total}`;
+    }
+  </script>
+</body>
+</html>
