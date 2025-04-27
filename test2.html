@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест 2: Законы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Тест: Законы</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Кто подписывает законы после принятия?</p>
+        <label><input type="radio" name="q1" value="correct"> Президент</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Парламент</label><br>
+        <label><input type="radio" name="q1" value="wrong"> Министр юстиции</label>
+      </div>
+
+      <div class="question">
+        <p>2. Что такое нормативно-правовой акт?</p>
+        <label><input type="radio" name="q2" value="correct"> Официальный документ, устанавливающий нормы права</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Литературное произведение</label><br>
+        <label><input type="radio" name="q2" value="wrong"> Финансовый отчет</label>
+      </div>
+
+      <div class="question">
+        <p>3. Кто принимает законы в Казахстане?</p>
+        <label><input type="radio" name="q3" value="correct"> Парламент</label><br>
+        <label><input type="radio" name="q3" value="wrong"> Аким</label><br>
+        <label><input type="radio" name="q3" value="wrong"> Суд</label>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Завершить тест</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+<script>
+  function submitQuiz() {
+    let correct = 0;
+    const form = document.forms["quizForm"];
+    if (form.q1.value == "correct") { correct++; }
+    if (form.q2.value == "correct") { correct++; }
+    if (form.q3.value == "correct") { correct++; }
+    document.getElementById("result").innerHTML = `Ваш результат: ${correct} из 3`;
+  }
+</script>
+</body>
+</html>
 
