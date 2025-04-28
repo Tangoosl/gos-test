@@ -157,15 +157,11 @@
   </style>
 </head>
   <script>
-    // Кірген кезде userEmail сақтау
-localStorage.setItem('userEmail', email);
-
-// Жүйеге кірген кезде көрсетілім
+// JavaScript кодтары осында
 const loggedInUser = localStorage.getItem('userEmail');
 if (loggedInUser) {
   document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
 }
-
-
+</script>
 </body>
 </html>
