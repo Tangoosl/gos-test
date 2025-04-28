@@ -116,6 +116,8 @@
       <a href="payment.html">Төлем</a>
       <a href="registration.html">Тіркелу</a>
       <a href="login.html">Жүйеге кіру</a> <!-- Жүйеге кіру сілтемесі -->
+      <div id="user-display"></div> <!-- Мұнда аккаунттың аты көрсетіледі -->
+
     </nav>
   </header>
 
@@ -154,6 +156,16 @@
     }
   </style>
 </head>
+  <script>
+    // Кірген кезде userEmail сақтау
+localStorage.setItem('userEmail', email);
+
+// Жүйеге кірген кезде көрсетілім
+const loggedInUser = localStorage.getItem('userEmail');
+if (loggedInUser) {
+  document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
+}
+
 
 </body>
 </html>
