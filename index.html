@@ -1,6 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="kk">
 <head>
+  <style>
+    nav a {
+      color: white;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ГосТест</title>
@@ -12,9 +22,98 @@
       background-color: #f4f4f4;
     }
 
-    /* басқа стильдер */
+    header {
+     background-color: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    .cover {
+      background: url('https://raw.githubusercontent.com/Tangoosl/gos-test/refs/heads/main/cover.jpg.webp') no-repeat center center;
+      background-size: cover;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .cover h2 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .button-container a {
+      background-color: #3498db;
+      color: white;
+      padding: 20px 40px;
+      font-size: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container a:hover {
+      background-color: #2980b9;
+    }
+
+    .footer {
+      background-color: #34495e;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    nav {
+      background-color: #34495e;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+      <link rel="stylesheet" href="style.css">
+    }
   </style>
-  <link rel="stylesheet" href="style.css"> <!-- Егер сыртқы CSS файлы қолдансаңыз -->
 </head>
 <body>
   <!-- Header -->
@@ -25,26 +124,42 @@
       <a href="language.html">Тіл</a>
       <a href="payment.html">Төлем</a>
       <a href="registration.html">Тіркелу</a>
-      <a href="login.html">Жүйеге кіру</a>
-      <div id="user-display"></div>
+      <a href="login.html">Жүйеге кіру</a> <!-- Жүйеге кіру сілтемесі -->
+      <div id="user-display"></div> <!-- Мұнда аккаунттың аты көрсетіледі -->
+
     </nav>
   </header>
 
+  <!-- Cover Section -->
+  <div class="cover">
+    <h2>Мемлекеттік қызметке бізбен бірге дайындал!</h2>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="test1.html">Құқық және Заң</a></li>
+      <li><a href="test2.html">Экономика</a></li>
+      <li><a href="test3.html">Әлеуметтік Қызмет</a></li>
+      <li><a href="test4.html">Әскери Істер</a></li>
+    </ul>
+  </nav>
+
   <!-- Main Content -->
   <div class="container">
-    <h2>Мемлекеттік қызметке бізбен бірге дайындал!</h2>
+    <!-- Main content can go here -->
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    © 2025 ГосТест. Барлық құқықтар қорғалған.
-  </div>
-
-  <script>
+    © 2025 ГосТест. Все права защищены.
+    </div>
+   <script>
+    // JavaScript кодтары осында
     const loggedInUser = localStorage.getItem('userEmail');
     if (loggedInUser) {
       document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
     }
   </script>
-</body>
+  </body>
 </html>
