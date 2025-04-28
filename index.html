@@ -153,23 +153,13 @@
   <!-- Footer -->
   <div class="footer">
     © 2025 ГосТест. Все права защищены.
-  </div>
-
-  <style>
-    nav a {
-      color: white;
+    </div>
+   <script>
+    // JavaScript кодтары осында
+    const loggedInUser = localStorage.getItem('userEmail');
+    if (loggedInUser) {
+      document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
     }
-
-    nav a:hover {
-      color: #3498db;
-    }
-  </style>
+  </script>
+  </body>
 </html>
- <script>
-// JavaScript кодтары осында
-const loggedInUser = localStorage.getItem('userEmail');
-if (loggedInUser) {
-  document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
-}
-</script>
-</body>
