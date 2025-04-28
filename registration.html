@@ -59,10 +59,10 @@
 <div class="container">
   <div class="register-form">
     <h2>Тіркелу</h2>
-    <form action="#" method="post">
-      <input type="text" name="fullname" placeholder="Толық атыңыз" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Құпиясөз" required>
+    <form id="registrationForm">
+      <input type="text" name="fullname" id="fullname" placeholder="Толық атыңыз" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <input type="password" name="password" id="password" placeholder="Құпиясөз" required>
       <button type="submit">Тіркелу</button>
     </form>
   </div>
@@ -71,6 +71,31 @@
 <div class="footer">
   © 2025 ГосТест. Барлық құқықтар қорғалған.
 </div>
+
+<script>
+  const form = document.querySelector('#registrationForm');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const fullname = form.fullname.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // Мәліметтерді LocalStorage-қа сақтаймыз
+    const user = {
+      fullname: fullname,
+      email: email,
+      password: password
+    };
+
+    localStorage.setItem('user', JSON.stringify(user));
+
+    alert('Тіркелу сәтті өтті!');
+
+    form.reset();
+  });
+</script>
 
 </body>
 </html>
