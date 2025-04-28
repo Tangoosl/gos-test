@@ -96,6 +96,40 @@
     form.reset();
   });
 </script>
+<form id="registerForm" action="#" method="post">
+  <input type="text" name="fullname" placeholder="Толық атыңыз" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Құпиясөз" required>
+  <button type="submit">Тіркелу</button>
+</form>
+
+<script>
+  document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();  // Форма жіберілген кезде парақ қайта жүктелмейді
+
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+
+    // Email тексеру
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Дұрыс email енгізіңіз');
+      return;
+    }
+
+    // Пароль ұзындығын тексеру
+    if (password.length < 6) {
+      alert('Пароль кемінде 6 таңба болуы тиіс');
+      return;
+    }
+
+    // Мәліметтерді localStorage сақтаймыз
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPassword', password);
+
+    alert('Тіркелу сәтті аяқталды!');
+  });
+</script>
 
 </body>
 </html>
