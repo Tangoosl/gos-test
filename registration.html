@@ -130,6 +130,14 @@
     alert('Тіркелу сәтті аяқталды!');
   });
 </script>
+<script>
+// JavaScript кодтары осында
+const loggedInUser = localStorage.getItem('userEmail');
+if (loggedInUser) {
+  document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
+}
+</script>
+</body>
 
 </body>
 </html>
