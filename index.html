@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="kk">
 <head>
@@ -126,7 +125,6 @@
       <a href="registration.html">Тіркелу</a>
       <a href="login.html">Жүйеге кіру</a> <!-- Жүйеге кіру сілтемесі -->
       <div id="user-display"></div> <!-- Мұнда аккаунттың аты көрсетіледі -->
-
     </nav>
   </header>
 
@@ -153,13 +151,15 @@
   <!-- Footer -->
   <div class="footer">
     © 2025 ГосТест. Все права защищены.
-    </div>
-   <script>
+  </div>
+
+  <script>
     // JavaScript кодтары осында
     const loggedInUser = localStorage.getItem('userEmail');
+    console.log(localStorage.getItem('userEmail')); // Дәлел ретінде логинді консольге шығару
     if (loggedInUser) {
       document.getElementById('user-display').innerText = `Қош келдіңіз, ${loggedInUser}`;
     }
   </script>
-  </body>
+</body>
 </html>
