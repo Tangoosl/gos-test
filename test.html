@@ -1,20 +1,17 @@
-if (localStorage.getItem("access_granted") !== "true") {
-  window.location.href = "login.html";
-}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <title>Тест</title>
-</head>
-<body>
+
   <script>
-    // Защита страницы — проверка входа
+    // 🔒 Проверка доступа — если пользователь не авторизован, перенаправляем на login.html
     if (localStorage.getItem("access_granted") !== "true") {
-      window.location.href = "login.html"; // Перенаправление на форму входа
+      window.location.href = "login.html";
     }
   </script>
-
+</head>
+<body>
   <h1>Добро пожаловать на тест!</h1>
 
   <form id="quizForm">
