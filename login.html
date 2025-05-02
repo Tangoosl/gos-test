@@ -1,70 +1,25 @@
 <!DOCTYPE html>
-<html lang="kk">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Жүйеге кіру</title>
-  <style>
-    .login-form {
-      max-width: 400px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .login-form input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .login-form button {
-      width: 100%;
-      padding: 10px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px;
-    }
-
-    .login-form button:hover {
-      background-color: #2980b9;
-    }
-  </style>
+  <title>Вход в закрытый раздел</title>
 </head>
 <body>
+  <h2>Введите код доступа</h2>
+  <input type="text" id="accessCode" placeholder="Код">
+  <button onclick="login()">Войти</button>
+  <p id="error" style="color:red;"></p>
 
-<div class="login-form">
-  <h2>Жүйеге кіру</h2>
-  <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="Email" required>
-    <input type="password" id="loginPassword" placeholder="Құпиясөз" required>
-    <button type="submit">Кіру</button>
-  </form>
-</div>
-
-<script>
-  document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-      alert('Жүйеге сәтті кірдіңіз!');
-      window.location.href = 'index.html'; // Басты бетке бағыттау
-    } else {
-      alert('Қате email немесе құпиясөз');
+  <script>
+    function login() {
+      const code = document.getElementById('accessCode').value;
+      if (code === "kaspi2025") {
+        localStorage.setItem("access_granted", "true");
+        window.location.href = "private.html";
+      } else {
+        document.getElementById("error").textContent = "Неверный код";
+      }
     }
-  });
-</script>
-
+  </script>
 </body>
 </html>
