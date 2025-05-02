@@ -1,22 +1,33 @@
-<input type="text" id="login" placeholder="Ваш логин"><br>
-<input type="text" id="accessCode" placeholder="Код доступа"><br>
-<button onclick="login()">Войти</button>
-<p id="error" style="color:red;"></p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+</head>
+<body>
+  <h2>Вход в систему</h2>
+  <input type="text" id="login" placeholder="Логин"><br><br>
+  <input type="password" id="accessCode" placeholder="Пароль"><br><br>
+  <button onclick="login()">Войти</button>
+  <p id="error" style="color:red;"></p>
 
-<script>
-  async function login() {
-    const login = document.getElementById('login').value.trim();
-    const code = document.getElementById('accessCode').value.trim();
+  <script>
+    async function login() {
+      const login = document.getElementById('login').value.trim();
+      const code = document.getElementById('accessCode').value.trim();
 
-    const url = "https://script.google.com/macros/s/ВАША_ССЫЛКА/exec?login=" + encodeURIComponent(login) + "&code=" + encodeURIComponent(code);
-    const response = await fetch(url);
-    const result = await response.json();
+      // Замените эту ссылку на вашу из Google Apps Script
+      const url = "https://script.google.com/macros/s/ВАША_ССЫЛКА/exec?login=" + encodeURIComponent(login) + "&code=" + encodeURIComponent(code);
+      const response = await fetch(url);
+      const result = await response.json();
 
-    if (result.access) {
-      localStorage.setItem("access_granted", "true");
-      window.location.href = "private.html";
-    } else {
-      document.getElementById("error").textContent = "Неверный логин или код";
+      if (result.access) {
+        localStorage.setItem("access_granted", "true");
+        window.location.href = "test.html";  // 👉 переход на страницу с тестом
+      } else {
+        document.getElementById("error").textContent = "Неверный логин или пароль";
+      }
     }
-  }
-</script>
+  </script>
+</body>
+</html>
