@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Приватный тест</title>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem("access_granted") !== "true") {
+      alert("Нет доступа. Сначала войдите.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <h2>Тест на знание законодательства</h2>
+  <form id="quiz">
+    <label>1. Основной закон РК?</label><br>
+    <input type="radio" name="q1" value="a"> Конституция ✅<br>
+    <input type="radio" name="q1" value="b"> Уголовный кодекс<br><br>
+
+    <label>2. Кто назначает акима области?</label><br>
+    <input type="radio" name="q2" value="a"> Президент ✅<br>
+    <input type="radio" name="q2" value="b"> Народ<br><br>
+
+    <button type="submit">Проверить</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("quiz").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "a") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "a") score++;
+      document.getElementById("result").textContent = "Ваш результат: " + score + "/2";
+    });
+  </script>
+</body>
+</html>
