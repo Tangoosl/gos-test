@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Вход в закрытый раздел</title>
-</head>
-<body>
-  <h2>Введите код доступа</h2>
-  <input type="text" id="accessCode" placeholder="Код">
-  <button onclick="login()">Войти</button>
-  <p id="error" style="color:red;"></p>
+<input type="text" id="login" placeholder="Ваш логин"><br>
+<input type="text" id="accessCode" placeholder="Код доступа"><br>
+<button onclick="login()">Войти</button>
+<p id="error" style="color:red;"></p>
 
-  <script>
-    function login() {
-      const code = document.getElementById('accessCode').value;
-      if (code === "kaspi2025") {
-        localStorage.setItem("access_granted", "true");
-        window.location.href = "private.html";
-      } else {
-        document.getElementById("error").textContent = "Неверный код";
-      }
+<script>
+  async function login() {
+    const login = document.getElementById('login').value.trim();
+    const code = document.getElementById('accessCode').value.trim();
+
+    const url = "https://script.google.com/macros/s/ВАША_ССЫЛКА/exec?login=" + encodeURIComponent(login) + "&code=" + encodeURIComponent(code);
+    const response = await fetch(url);
+    const result = await response.json();
+
+    if (result.access) {
+      localStorage.setItem("access_granted", "true");
+      window.location.href = "private.html";
+    } else {
+      document.getElementById("error").textContent = "Неверный логин или код";
     }
-  </script>
-</body>
-</html>
+  }
+</script>
