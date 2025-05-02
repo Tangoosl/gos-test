@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Тест</title>
+</head>
+<body>
+  <script>
+    // Защита страницы — проверка входа
+    if (localStorage.getItem("access_granted") !== "true") {
+      window.location.href = "login.html"; // Перенаправление на форму входа
+    }
+  </script>
 
+  <h1>Добро пожаловать на тест!</h1>
+
+  <form id="quizForm">
+    <p>1. Столица Казахстана?</p>
+    <label><input type="radio" name="q1" value="a"> Алматы</label><br>
+    <label><input type="radio" name="q1" value="b"> Астана</label><br>
+    <label><input type="radio" name="q1" value="c"> Шымкент</label><br>
+
+    <p>2. Цвет флага Казахстана?</p>
+    <label><input type="radio" name="q2" value="a"> Красный</label><br>
+    <label><input type="radio" name="q2" value="b"> Зелёный</label><br>
+    <label><input type="radio" name="q2" value="c"> Голубой</label><br><br>
+
+    <button type="button" onclick="checkAnswers()">Проверить</button>
+  </form>
+
+  <p id="result" style="font-weight: bold;"></p>
+
+  <script>
+    function checkAnswers() {
+      const form = document.forms["quizForm"];
+      let score = 0;
+
+      if (form.q1.value === "b") score++;
+      if (form.q2.value === "c") score++;
+
+      document.getElementById("result").textContent = "Ваш результат: " + score + " из 2";
+    }
+  </script>
+</body>
+</html>
