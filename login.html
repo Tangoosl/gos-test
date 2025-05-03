@@ -1,22 +1,43 @@
-<script>
-  document.querySelector('form').addEventListener('submit', async function(event) {
-    event.preventDefault();
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Жүйеге кіру</title>
+</head>
+<body>
+  <h2>Жүйеге кіру</h2>
+  <form id="login-form">
+    <input type="text" placeholder="Логин" name="login" required><br>
+    <input type="password" placeholder="Құпиясөз" name="password" required><br>
+    <button type="submit">Кіру</button>
+  </form>
 
-    const login = document.querySelector('input[type="text"]').value;
-    const password = document.querySelector('input[type="password"]').value;
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
 
-    const response = await fetch('ВАШ_СКОПИРОВАННЫЙ_URL', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `login=${encodeURIComponent(login)}&password=${encodeURIComponent(password)}`
+      const login = document.querySelector('input[name="login"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+
+      const response = await fetch('ВАШ_СКОПИРОВАННЫЙ_URL', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `login=${encodeURIComponent(login)}&password=${encodeURIComponent(password)}`
+      });
+
+      try {
+        const result = await response.json();
+        if (result.success) {
+          alert('Успешный вход!');
+          window.location.href = 'dashboard.html'; // Создай эту страницу!
+        } else {
+          alert('Неверный логин немесе құпиясөз');
+        }
+      } catch (error) {
+        alert('Қате: сервер жауап бермеді.');
+        console.error(error);
+      }
     });
-
-    const result = await response.json();
-    if (result.success) {
-      alert('Успешный вход!');
-      window.location.href = 'dashboard.html'; // или куда вы хотите
-    } else {
-      alert('Неверный логин или пароль');
-    }
-  });
-</script>
+  </script>
+</body>
+</html>
